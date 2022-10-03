@@ -16,6 +16,8 @@ import { SliderData } from "../Components/Sliders/sliderData";
 import ImageSlider from "../Components/Sliders/sliderFlow";
 import ConnectAddress from "../../src/Assets/iletisim.jpg";
 
+import { useNavigate } from 'react-router-dom';
+
 import MockData from '../Data/Mock.json'
 
 const Search = styled("div")(({ theme }) => ({
@@ -90,6 +92,13 @@ else{
 
   }
 
+  let navigate = useNavigate();
+
+ const openList=()=> {
+    console.log("girdi mi")
+    navigate(`/list`,{state:{list:filtered}});
+  }
+
   return (
     <div>
       <div className="AddNewMain">
@@ -119,16 +128,16 @@ else{
       </div>
 
       <div className="SearchEnginee">
-      { filtered ?  
-      <div>
-          <ListItems name={filtered[0].full_name} country={filtered[0].country} />
-          <ListItems name={filtered[1].full_name} country={filtered[1].country}/>
-          <ListItems name={filtered[2].full_name} country={filtered[2].country}/>
-        </div> : null }
 
-        <div className="ShowMore">
-          <Buttons title="Show more.." />{" "}
+      <div>
+        {filtered && filtered[0] ? <ListItems name={filtered[0].full_name} country={filtered[0].country} /> : null}
+        {filtered && filtered[1]?  <ListItems name={filtered[1].full_name} country={filtered[1].country}/>: null}
+         {filtered &&  filtered[2] ?  <ListItems name={filtered[2].full_name} country={filtered[2].country}/> : null}
         </div>
+{ filtered && filtered.length>3 &&
+        <div className="ShowMore">
+          <Buttons title="Show more.." onClick={openList} />{" "}
+        </div>}
       </div>
 
       <div style={{ flex: 1, height: 400 }}>
@@ -152,9 +161,9 @@ else{
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113846.975648013!2d30.847713622994718!3d40.345314339614035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabb7abf29ba35%3A0xc98f44e9057adcde!2zVGVzb2RldiBZYXrEsWzEsW0gRG9uYW7EsW0gQmlsacWfaW0gQml5b21lZGlrYWwgS29uZ3JlIFR1cml6bSBFxJ9pdGltIERhbsSxxZ9tYW5sxLFrIExpbWl0ZWQgxZ5pcmtldGk!5e0!3m2!1str!2str!4v1664816444743!5m2!1str!2str"
             width="480"
             height="200"
-            allowfullscreen=""
+            allowFullScreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
       </div>

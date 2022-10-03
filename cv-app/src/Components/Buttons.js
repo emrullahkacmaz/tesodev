@@ -8,7 +8,7 @@ const Buttons = (props) => {
   return (
     
     <div>
-      <button onClick={onClick} style={{width:200, height:40, borderRadius:8,color:'black', borderWidth:0, backgroundColor:'transparent'}} type="button" >
+      <button onClick={onClick} style={{width:200, height:40, borderRadius:8,color:color, borderWidth:0, backgroundColor:'transparent'}} type="button" >
 {title}
       </button>
     </div>
