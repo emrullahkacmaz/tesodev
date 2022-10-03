@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+  padding: 150px;
+  background-color: rgb(111, 169, 136);
+  text-decoration-color: blueviolet
+  ;
+}
+ 
+
+
+
+
+
+
+
+
+
+.App-header {
+  background-color: #4478e2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(93, 6, 6);
+}
+
+

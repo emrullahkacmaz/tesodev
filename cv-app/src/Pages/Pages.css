@@ -1,0 +1,81 @@
+.AddNewMain {
+
+    margin-top:30px;
+  
+  margin-left:80%;
+
+
+
+  }
+   
+
+  .Logo {
+   
+    margin-top:30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+   
+  }
+
+ .FindText
+  {
+ 
+  margin-left:22%;
+  font-weight: bold;
+  font-size: 27px;
+
+  }
+  .SearchBar{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 66%;
+    margin-left: 20%;
+  
+  }
+  .SearchTextArea{
+
+   flex:4;
+  
+
+
+  
+  }
+  .SearchButtonArea{
+
+ 
+   flex:1
+  
+  }
+  .SearchEnginee{
+
+ 
+ width:52%;
+ margin-top: 7px;
+
+ margin-left: 20%;
+ height:180px;
+
+ 
+  
+  }
+  .ShowMore{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .Footer{
+    display: flex;
+    width: 100%;
+    height: 250px;
+    background-color: blue;
+    flex-direction: row;
+
+  }
