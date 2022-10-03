@@ -5,7 +5,7 @@ import LocationOn from '@mui/icons-material/LocationOn';
 const ListItems = (props) => {
     
 
-    const {country,city }= props
+    const {country,name }= props
 
   return (
     
@@ -17,8 +17,8 @@ const ListItems = (props) => {
         </div>
 <div style={{marginLeft:10}}>
        
-        <div >British Indian Ocean Territory</div>
-            <div> Colwood</div>
+        <div >{name}</div>
+            <div>{country}</div>
            
             </div>
            

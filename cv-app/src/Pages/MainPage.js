@@ -70,11 +70,23 @@ const MainPages = () => {
 
   const items = [<SearchIcon />, <SearchIcon />, <SearchIcon />];
   const [value, setValue] = React.useState(null);
+  const [filtered, setFiltered] = React.useState(null);
 
-
+ 
   const searchFilter=()=>{
+    
 
-value.length>3 && MockData.filter((item)=> item.full_name.toLocaleLowerCase().includes(value.toLocaleLowerCase()))
+ 
+if(value &&  value.length>2){
+ var filterList = MockData.filter((item)=> item.full_name.toLocaleLowerCase().includes(value.toLocaleLowerCase()));
+  console.log("filterlendi", filterList)
+  setFiltered(filterList)
+
+}
+else{
+  setFiltered()
+}
+
 
   }
 
@@ -107,11 +119,12 @@ value.length>3 && MockData.filter((item)=> item.full_name.toLocaleLowerCase().in
       </div>
 
       <div className="SearchEnginee">
-        <div>
-          <ListItems />
-          <ListItems />
-          <ListItems />
-        </div>
+      { filtered ?  
+      <div>
+          <ListItems name={filtered[0].full_name} country={filtered[0].country} />
+          <ListItems name={filtered[1].full_name} country={filtered[1].country}/>
+          <ListItems name={filtered[2].full_name} country={filtered[2].country}/>
+        </div> : null }
 
         <div className="ShowMore">
           <Buttons title="Show more.." />{" "}
