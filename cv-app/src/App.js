@@ -11,6 +11,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css'
  
 import MainPages from './Pages/MainPage';
 import ShowMoreList from './Pages/ShowMoreList';
+import AddForm from './Pages/AddForm';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
     <Routes>
       <Route path="/" element={<MainPages/>} />
         <Route path="/list" element={<ShowMoreList />} />
+        <Route path="/form" element={<AddForm />} />
         
 
     </Routes>

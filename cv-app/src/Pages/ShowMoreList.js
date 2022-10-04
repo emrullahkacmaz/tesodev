@@ -9,7 +9,9 @@ import Buttons from "../Components/Buttons";
 import ListFilterItem from '../Components/ListFilterItem';
 import CompareArrowsSharpIcon from '@mui/icons-material/CompareArrowsSharp';
 
-import { Dropdown, Option } from "../Components/Dropdown";
+import { useNavigate } from 'react-router-dom';
+
+ 
 
 
 
@@ -81,7 +83,7 @@ React. useEffect(() => {
       return  filterMyList.slice(firstPageIndex, lastPageIndex);
     }, [currentPage, filterMyList]);
 
-    const {route,navigate}= props
+  
   
 console.log("2.sayfa", location.state.list)
 const [value, setValue] = React.useState(null);
@@ -111,6 +113,13 @@ const nameDescending=()=>{
  
     setFilterMyList( filterMyList.slice().sort((a, b)=> new Date(b.date).getTime().toString().localeCompare(new Date(a.date).getTime().toString())))
    }
+
+   let navigate = useNavigate();
+   const goToForm=()=> {
+     
+    navigate(`/form`);
+  }
+
    
   return (
     <div>
@@ -129,7 +138,7 @@ const nameDescending=()=>{
           </Search>
          </div>
          <div  style={{flex:2}}>   <Buttons title="Search"/></div>
-         <div  style={{flex:2}}> <Buttons title="Add new record" color='blue'/></div>
+         <div  style={{flex:2}}> <Buttons onClick={goToForm} title="Add new record" color='blue'/></div>
     </div>
     <div style={{flexDirection:'row', display:'flex'}}>
 

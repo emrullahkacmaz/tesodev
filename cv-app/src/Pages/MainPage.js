@@ -97,13 +97,18 @@ else{
  const openList=()=> {
     console.log("girdi mi")
     navigate(`/list`,{state:{list:filtered}});
+    
+  }
+  const goToForm=()=> {
+     
+    navigate(`/form`);
   }
 
   return (
     <div>
       <div className="AddNewMain">
         {" "}
-        <Buttons title="Add new record" />{" "}
+        <Buttons onClick={goToForm} title="Add new record" />{" "}
       </div>
       <div className="Logo">
         <img src={logo} alt="Canvas Logo" />
