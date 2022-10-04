@@ -54,7 +54,7 @@ const Pagination = props => {
           <button
            
               selected= {pageNumber === currentPage}
-              style={{marginLeft:10,marginRight:10, backgroundColor: pageNumber===currentPage ? 'grey' : 'white'}}
+              style={{marginLeft:10,marginRight:10, backgroundColor: pageNumber===currentPage ? '#204080' : 'white', color: pageNumber===currentPage ? 'white' : 'black'}}
            
             onClick={() => onPageChange(pageNumber)}
           >

@@ -19,8 +19,10 @@ const ListItems = (props) => {
        
         <div >{name}</div>
             <div>{country}</div>
-           
+            <div style={{backgroundColor:'#dfd8d2', width: 610,height:0.5}}></div>
             </div>
+
+          
            
     </div>
   );

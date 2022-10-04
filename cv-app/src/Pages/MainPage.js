@@ -8,11 +8,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import ListItems from "../Components/ListItem";
 
-import AliceCarousel from "react-alice-carousel";
-import "react-alice-carousel/lib/alice-carousel.css";
+ 
+ 
 
-import { Carousel } from "@trendyol-js/react-carousel";
-import { SliderData } from "../Components/Sliders/sliderData";
+ 
 import ImageSlider from "../Components/Sliders/sliderFlow";
 import ConnectAddress from "../../src/Assets/iletisim.jpg";
 
@@ -96,7 +95,7 @@ else{
 
  const openList=()=> {
     console.log("girdi mi")
-    navigate(`/list`,{state:{list:filtered}});
+    navigate(`/list`,{state:{list:filtered, value:value}});
     
   }
   const goToForm=()=> {
@@ -104,11 +103,13 @@ else{
     navigate(`/form`);
   }
 
+  const hoverColor= value && value.length>2 ? '#204080' : '#4F75C2'
+
   return (
     <div>
       <div className="AddNewMain">
         {" "}
-        <Buttons onClick={goToForm} title="Add new record" />{" "}
+        <Buttons backgroundColor='#204080' color='white' onClick={goToForm} title="Add new record" />{" "}
       </div>
       <div className="Logo">
         <img src={logo} alt="Canvas Logo" />
@@ -128,24 +129,24 @@ else{
           </Search>
         </div>
         <div className="SearchButtonArea">
-          <Buttons title="Search" onClick={searchFilter} />
+          <Buttons color='white' backgroundColor={hoverColor} title="Search" onClick={searchFilter} />
         </div>
       </div>
 
-      <div className="SearchEnginee">
+      <div className="SearchEnginee" style={{borderStyle:'inset', borderWidth:1,borderRadius:18, borderColor: filtered && filtered.length>0 ?'#484848':'transparent'}}>
 
-      <div>
+      <div style={{marginTop:15}}>
         {filtered && filtered[0] ? <ListItems name={filtered[0].full_name} country={filtered[0].country} /> : null}
         {filtered && filtered[1]?  <ListItems name={filtered[1].full_name} country={filtered[1].country}/>: null}
          {filtered &&  filtered[2] ?  <ListItems name={filtered[2].full_name} country={filtered[2].country}/> : null}
         </div>
 { filtered && filtered.length>3 &&
         <div className="ShowMore">
-          <Buttons title="Show more.." onClick={openList} />{" "}
+          <Buttons bold='bold' backgroundColor='transparent'  title="Show more..." onClick={openList} />{" "}
         </div>}
       </div>
 
-      <div style={{ flex: 1, height: 400 }}>
+      <div style={{ flex: 1, width:'100%', height:195, overflowX:'scroll' }}>
         <ImageSlider />
       </div>
 
