@@ -5,11 +5,11 @@ import LocationOn from '@mui/icons-material/LocationOn';
 const ListFilterItem = (props) => {
     
 
-    const {city, country,name, date }= props
+    const {city, country,name, date, key }= props
 
   return (
 
-    <div style={{ flexDirection:'row', width:'75%' , marginLeft:'20%', borderColor:'white', borderBottomColor:'grey' ,borderWidth:1, borderStyle:'solid', marginBottom:5}}>
+    <div key={key} style={{ flexDirection:'row', width:'75%' , marginLeft:'20%', borderColor:'white', borderBottomColor:'grey' ,borderWidth:1, borderStyle:'solid', marginBottom:5}}>
     <div  className='ListElements'>
        
 
