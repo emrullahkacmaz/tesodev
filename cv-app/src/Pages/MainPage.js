@@ -2,72 +2,36 @@ import * as React from "react";
 import Buttons from "../Components/Buttons";
 import "./Pages.css";
 import logo from "../../src/Assets/tesodev.jpg";
-import { styled, alpha } from "@mui/material/styles";
+ 
 import SearchIcon from "@mui/icons-material/Search";
 
-import InputBase from "@mui/material/InputBase";
+ 
 import ListItems from "../Components/ListItem";
 
- 
+import Carousel from "react-elastic-carousel";
+import ItemSlider from "../Components/Sliders/itemSlider";
+import "../Components/Sliders/slideStyles.css";
  
 
  
-import ImageSlider from "../Components/Sliders/sliderFlow";
+ 
 import ConnectAddress from "../../src/Assets/iletisim.jpg";
 
 import { useNavigate } from 'react-router-dom';
 
 import MockData from '../Data/Mock.json'
 
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderWidth: 2,
-  borderRadius: theme.shape.borderRadius,
-  borderColor: alpha(theme.palette.common.black, 0.15),
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
-    width: "auto",
-  },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  width: "100%",
-  borderWidth: 2,
-  borderColor: alpha(theme.palette.common.black, 0.15),
-  backgroundColor: alpha(theme.palette.common.black, 0.15),
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
-  },
-}));
+import {Search,SearchIconWrapper,StyledInputBase } from '../Components/Search/searchStyles'
 
 const MainPages = () => {
-  const handleDragStart = (e) => e.preventDefault();
+
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 2 },
+    { width: 768, itemsToShow: 3 },
+   
+  ];
+  
 
   const items = [<SearchIcon />, <SearchIcon />, <SearchIcon />];
   const [value, setValue] = React.useState(null);
@@ -146,8 +110,17 @@ else{
         </div>}
       </div>
 
-      <div style={{ flex: 1, width:'100%', height:195, overflowX:'scroll' }}>
-        <ImageSlider />
+      <div   style={{ flex: 1, width:'100%', height:304, marginTop:16 }}>
+      <Carousel  breakPoints={breakPoints}>
+          <ItemSlider>One</ItemSlider>
+          <ItemSlider>Two</ItemSlider>
+          <ItemSlider>Three</ItemSlider>
+          <ItemSlider>Four</ItemSlider>
+          <ItemSlider>Five</ItemSlider>
+          <ItemSlider>Six</ItemSlider>
+          <ItemSlider>Seven</ItemSlider>
+          <ItemSlider>Eight</ItemSlider>
+        </Carousel>
       </div>
 
       <div className="Footer">
