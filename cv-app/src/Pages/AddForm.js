@@ -1,9 +1,10 @@
-import React  from 'react';
+import React ,{useState} from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import KeyboardBackspaceSharpIcon from '@mui/icons-material/KeyboardBackspaceSharp';
 import logo from "../../src/Assets/tesodev.jpg";
 import { useNavigate } from "react-router-dom";
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
  
 
 const AddForm = () => {
@@ -33,6 +34,8 @@ const AddForm = () => {
         navigate(`/`);
       };
 
+      const [errPop, setErrPop]= useState(false);
+
 
   return (
     
@@ -58,15 +61,15 @@ const AddForm = () => {
        onSubmit={values => {
       
 
-      
+      console.log('boş gelen')
        
          console.log(values);
        }}
      >
-       {({ errors, touched, isValid , status }) => (
+       {({ errors, touched, isValid   }) => (
          <Form>
 
-            <div style={{height:600, width:300, display:'flex', marginLeft:200,marginTop:30, flexDirection:'column'}}>
+            <div style={{height:380, width:300, display:'flex', marginLeft:200,marginTop:30, flexDirection:'column'}}>
           
           <div style={{height:80,width:600}}>
           <div style={{ fontWeight:'bold', color: errors.nameSurname ? 'red': 'black'}}>Name Surname</div>
@@ -94,12 +97,21 @@ const AddForm = () => {
            </div>
           
            <div style={{height:80,width:600, marginTop:10}}>
-           <button onClick={()=>console.log("error", errors)} style={{borderRadius:18, borderColor:'transparent',color:'white' ,backgroundColor: !isValid ? '#4F75C2' : '#204080',  marginTop:20, marginLeft:500, width:100}} type="submit">Submit</button>
+           <button onClick={()=> isValid===false ? setErrPop(true): setErrPop(false)} style={{borderRadius:18, borderColor:'transparent',color:'white' ,backgroundColor: !isValid ? '#4F75C2' : '#204080',  marginTop:20, marginLeft:500, width:100}} type="submit">Submit</button>
            </div>
            </div>
          </Form>
        )}
      </Formik>
+     
+
+  {errPop &&   <div style={{  width:375, height:133, backgroundColor:'#C4C4C4', marginLeft:950, borderRadius:10}}>
+<div style={{ height:25}}> <button onClick={()=> setErrPop(false)} style={{backgroundColor:'transparent', borderColor:'transparent', marginLeft:321}}> <HighlightOffIcon /> </button></div>
+<div style={{ height:25, fontSize:'14px', fontWeight:'bold', marginLeft:18}}> Error while adding with element</div>
+<div style={{ height:25,width:55, fontSize:'14px', fontWeight:'bold',  backgroundColor:'#FF4E78', borderRadius:20, marginLeft:275}}><div style={{color:'white',marginLeft:10}}> Error </div> </div>
+<div  style={{ height:48, fontSize:'14px', width:240, marginLeft:18 }}> Name and surname should contain at least 2 words</div>
+
+     </div>}
    </div>
   );
 };
