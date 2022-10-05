@@ -2,18 +2,20 @@ import React, { useState, useMemo } from "react";
 import Pagination from "../Components/Pagination/Pagination";
 import { useLocation } from "react-router-dom";
 import logo from "../../src/Assets/tesodev.jpg";
- 
+
 import Buttons from "../Components/Buttons";
 import ListFilterItem from "../Components/ListFilterItem";
 import CompareArrowsSharpIcon from "@mui/icons-material/CompareArrowsSharp";
 
 import { useNavigate } from "react-router-dom";
-import {Search,SearchIconWrapper,StyledInputBase } from '../Components/Search/searchStyles'
-
+import {
+  Search,
+  SearchIconWrapper,
+  StyledInputBase,
+} from "../Components/Search/searchStyles";
 
 const ShowMoreList = (props) => {
-  console.log("ilk gelen", location);
-
+ 
   let PageSize = 5;
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,106 +29,56 @@ const ShowMoreList = (props) => {
     const lastPageIndex = firstPageIndex + PageSize;
     return filterMyList.slice(firstPageIndex, lastPageIndex);
   }, [currentPage, filterMyList]);
+ 
+ 
 
-  console.log("2.sayfa", location.state.list);
-  const [value, setValue] = React.useState(null);
 
-  const [optionValue, setOptionValue] = React.useState("");
-  const handleSelect = (e) => {
-    console.log(e.target.value);
-    setOptionValue(e.target.value);
+
+  const orderFilter = (item) => {
+    if (item === "nameAscending") {
+      setFilterMyList(
+        filterMyList
+          .slice()
+          .sort((a, b) => a.full_name.localeCompare(b.full_name))
+      );
+      setSelectOrder(1);
+    }
+
+    if (item === "nameDescending") {
+      setFilterMyList(
+        filterMyList
+          .slice()
+          .sort((a, b) => b.full_name.localeCompare(a.full_name))
+      );
+      setSelectOrder(2);
+    }
+
+    if (item === "dateAscending") {
+      setFilterMyList(
+        filterMyList.slice().sort((a, b) =>
+          new Date(a.date)
+            .getTime()
+            .toString()
+            .localeCompare(new Date(b.date).getTime().toString())
+        )
+      );
+      setSelectOrder(3);
+    }
+
+    if (item === "dateDescending") {
+      setFilterMyList(
+        filterMyList.slice().sort((a, b) =>
+          new Date(b.date)
+            .getTime()
+            .toString()
+            .localeCompare(new Date(a.date).getTime().toString())
+        )
+      );
+      setSelectOrder(4);
+    }
   };
 
-
-  const orderFilter=(item)=>
-  {
-if(item==='nameAscending'){ 
-  setFilterMyList(
-  filterMyList
-    .slice()
-    .sort((a, b) => a.full_name.localeCompare(b.full_name))
-)
- setSelectOrder(1)}
-
-if(item==='nameDescending'){ 
-  setFilterMyList(
-  filterMyList
-    .slice()
-    .sort((a, b) => b.full_name.localeCompare(a.full_name))
-) 
-setSelectOrder(2)
-}
-
-if(item==='dateAscending'){   setFilterMyList(
-  filterMyList.slice().sort((a, b) =>
-    new Date(a.date)
-      .getTime()
-      .toString()
-      .localeCompare(new Date(b.date).getTime().toString())
-  )
-)
-setSelectOrder(3)
-}
-
-
-
-if(item==='dateDescending'){
-  setFilterMyList(
-    filterMyList.slice().sort((a, b) =>
-      new Date(b.date)
-        .getTime()
-        .toString()
-        .localeCompare(new Date(a.date).getTime().toString())
-    )
-  )
-  setSelectOrder(4)
-
-
-}
-
-  }
-
-  const nameAscending = () => {
-    setSelectOrder(1);
-
-    setFilterMyList(
-      filterMyList
-        .slice()
-        .sort((a, b) => a.full_name.localeCompare(b.full_name))
-    );
-  };
-
-  const nameDescending = () => {
-    setSelectOrder(2);
-
-    setFilterMyList(
-      filterMyList
-        .slice()
-        .sort((a, b) => b.full_name.localeCompare(a.full_name))
-    );
-  };
-  const dateAscending = () => {
-    setSelectOrder(3);
-    setFilterMyList(
-      filterMyList.slice().sort((a, b) =>
-        new Date(a.date)
-          .getTime()
-          .toString()
-          .localeCompare(new Date(b.date).getTime().toString())
-      )
-    );
-  };
-  const dateDescending = () => {
-    setSelectOrder(4);
-    setFilterMyList(
-      filterMyList.slice().sort((a, b) =>
-        new Date(b.date)
-          .getTime()
-          .toString()
-          .localeCompare(new Date(a.date).getTime().toString())
-      )
-    );
-  };
+ 
 
   let navigate = useNavigate();
   const goToForm = () => {
@@ -153,13 +105,13 @@ if(item==='dateDescending'){
             style={{ width: 200, height: 100 }}
           />
         </div>
-        <div style={{ flex: 4, marginTop: 30}}>
+        <div style={{ flex: 4, marginTop: 30 }}>
           <Search>
             <SearchIconWrapper></SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
-              onChange={(e) => setValue(e.target.value)}
+             
               value={location.state.value}
             />
           </Search>
@@ -192,7 +144,12 @@ if(item==='dateDescending'){
         </div>
         <div style={{ flex: 1, marginRight: 100 }}>
           <button
-            style={{ width: 137, height: 45, borderRadius: 18, borderColor:'grey'}}
+            style={{
+              width: 137,
+              height: 45,
+              borderRadius: 18,
+              borderColor: "grey",
+            }}
             onClick={() => setIsVisible(!isVisible)}
           >
             <CompareArrowsSharpIcon style={{ rotate: "90deg" }} /> order by
@@ -212,7 +169,7 @@ if(item==='dateDescending'){
               }}
             >
               <button
-                onClick={()=>orderFilter('nameAscending')}
+                onClick={() => orderFilter("nameAscending")}
                 style={{
                   justifyContent: "center",
                   borderStyle: "hidden",
@@ -227,7 +184,7 @@ if(item==='dateDescending'){
                 Name ascending
               </button>
               <button
-                onClick={()=>orderFilter('nameDescending')}
+                onClick={() => orderFilter("nameDescending")}
                 style={{
                   justifyContent: "center",
                   borderStyle: "hidden",
@@ -241,7 +198,7 @@ if(item==='dateDescending'){
                 Name descending
               </button>
               <button
-                onClick={()=>orderFilter('dateAscending')}
+                onClick={() => orderFilter("dateAscending")}
                 style={{
                   justifyContent: "center",
                   borderStyle: "hidden",
@@ -255,7 +212,7 @@ if(item==='dateDescending'){
                 Date ascending
               </button>
               <button
-                onClick={()=>orderFilter('dateDescending')}
+                onClick={() => orderFilter("dateDescending")}
                 style={{
                   justifyContent: "center",
                   borderStyle: "hidden",
@@ -282,6 +239,7 @@ if(item==='dateDescending'){
           marginTop: 50,
         }}
       >
+        <div style={{width:'100%', height:80, marginLeft:500}}>
         <Pagination
           className="pagination-bar"
           currentPage={currentPage}
@@ -289,6 +247,7 @@ if(item==='dateDescending'){
           pageSize={PageSize}
           onPageChange={(page) => setCurrentPage(page)}
         />
+        </div>
       </div>
     </div>
   );

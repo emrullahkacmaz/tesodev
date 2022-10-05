@@ -2,78 +2,71 @@ import * as React from "react";
 import Buttons from "../Components/Buttons";
 import "./Pages.css";
 import logo from "../../src/Assets/tesodev.jpg";
- 
+
 import SearchIcon from "@mui/icons-material/Search";
 
- 
 import ListItems from "../Components/ListItem";
 
 import Carousel from "react-elastic-carousel";
 import ItemSlider from "../Components/Sliders/itemSlider";
 import "../Components/Sliders/slideStyles.css";
- 
 
- 
- 
 import ConnectAddress from "../../src/Assets/iletisim.jpg";
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-import MockData from '../Data/Mock.json'
+import MockData from "../Data/Mock.json";
 
-import {Search,SearchIconWrapper,StyledInputBase } from '../Components/Search/searchStyles'
+import {
+  Search,
+  SearchIconWrapper,
+  StyledInputBase,
+} from "../Components/Search/searchStyles";
 
 const MainPages = () => {
-
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2 },
     { width: 768, itemsToShow: 3 },
-   
   ];
-  
 
-  const items = [<SearchIcon />, <SearchIcon />, <SearchIcon />];
   const [value, setValue] = React.useState(null);
   const [filtered, setFiltered] = React.useState(null);
 
- 
-  const searchFilter=()=>{
-    
-
- 
-if(value &&  value.length>2){
- var filterList = MockData.filter((item)=> item.full_name.toLocaleLowerCase().includes(value.toLocaleLowerCase()));
-  console.log("filterlendi", filterList)
-  setFiltered(filterList)
-
-}
-else{
-  setFiltered()
-}
-
-
-  }
+  const searchFilter = () => {
+    if (value && value.length > 2) {
+      var filterList = MockData.filter((item) =>
+        item.full_name.toLocaleLowerCase().includes(value.toLocaleLowerCase())
+      );
+   
+      setFiltered(filterList);
+    } else {
+      setFiltered();
+    }
+  };
 
   let navigate = useNavigate();
 
- const openList=()=> {
-    console.log("girdi mi")
-    navigate(`/list`,{state:{list:filtered, value:value}});
-    
-  }
-  const goToForm=()=> {
-     
+  const openList = () => {
+   
+    navigate(`/list`, { state: { list: filtered, value: value } });
+  };
+  const goToForm = () => {
     navigate(`/form`);
-  }
+  };
 
-  const hoverColor= value && value.length>2 ? '#204080' : '#4F75C2'
+  const hoverColor = value && value.length > 2 ? "#204080" : "#4F75C2";
 
   return (
     <div>
       <div className="AddNewMain">
         {" "}
-        <Buttons backgroundColor='#204080' color='white' onClick={goToForm} title="Add new record" />{" "}
+        <Buttons
+          backgroundColor="#204080"
+          color="white"
+          onClick={goToForm}
+          title="Add new record"
+        />{" "}
       </div>
       <div className="Logo">
         <img src={logo} alt="Canvas Logo" />
@@ -93,33 +86,67 @@ else{
           </Search>
         </div>
         <div className="SearchButtonArea">
-          <Buttons color='white' backgroundColor={hoverColor} title="Search" onClick={searchFilter} />
+          <Buttons
+          width='100px'
+            color="white"
+            backgroundColor={hoverColor}
+            title="Search"
+            onClick={searchFilter}
+          />
         </div>
       </div>
 
-      <div className="SearchEnginee" style={{borderStyle:'inset', borderWidth:1,borderRadius:18, borderColor: filtered && filtered.length>0 ?'#484848':'transparent'}}>
-
-      <div style={{marginTop:15}}>
-        {filtered && filtered[0] ? <ListItems name={filtered[0].full_name} country={filtered[0].country} /> : null}
-        {filtered && filtered[1]?  <ListItems name={filtered[1].full_name} country={filtered[1].country}/>: null}
-         {filtered &&  filtered[2] ?  <ListItems name={filtered[2].full_name} country={filtered[2].country}/> : null}
+      <div
+        className="SearchEnginee"
+        style={{
+          borderStyle: "inset",
+          borderWidth: 1,
+          borderRadius: 18,
+          borderColor:
+            filtered && filtered.length > 0 ? "#484848" : "transparent",
+        }}
+      >
+        <div style={{ marginTop: 15 }}>
+          {filtered && filtered[0] ? (
+            <ListItems
+              name={filtered[0].full_name}
+              country={filtered[0].country}
+            />
+          ) : null}
+          {filtered && filtered[1] ? (
+            <ListItems
+              name={filtered[1].full_name}
+              country={filtered[1].country}
+            />
+          ) : null}
+          {filtered && filtered[2] ? (
+            <ListItems
+              name={filtered[2].full_name}
+              country={filtered[2].country}
+            />
+          ) : null}
         </div>
-{ filtered && filtered.length>3 &&
-        <div className="ShowMore">
-          <Buttons bold='bold' backgroundColor='transparent'  title="Show more..." onClick={openList} />{" "}
-        </div>}
+        {filtered && filtered.length > 3 && (
+          <div className="ShowMore">
+            <Buttons
+              bold="bold"
+              backgroundColor="transparent"
+              title="Show more..."
+              onClick={openList}
+            />{" "}
+          </div>
+        )}
       </div>
 
-      <div   style={{ flex: 1, width:'100%', height:304, marginTop:16 }}>
-      <Carousel  breakPoints={breakPoints}>
-          <ItemSlider>One</ItemSlider>
-          <ItemSlider>Two</ItemSlider>
-          <ItemSlider>Three</ItemSlider>
-          <ItemSlider>Four</ItemSlider>
-          <ItemSlider>Five</ItemSlider>
-          <ItemSlider>Six</ItemSlider>
-          <ItemSlider>Seven</ItemSlider>
-          <ItemSlider>Eight</ItemSlider>
+      <div style={{ flex: 1, width: "100%", height: 304, marginTop: 16 }}>
+        <Carousel breakPoints={breakPoints}>
+          <ItemSlider />
+          <ItemSlider />
+          <ItemSlider />
+          <ItemSlider />
+          <ItemSlider />
+          <ItemSlider />
+          <ItemSlider />
         </Carousel>
       </div>
 

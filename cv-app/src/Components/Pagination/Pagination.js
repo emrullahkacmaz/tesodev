@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+ 
 import { usePagination, DOTS } from './usePagination';
 
 
@@ -10,7 +10,7 @@ const Pagination = props => {
     siblingCount = 1,
     currentPage,
     pageSize,
-    className
+   
   } = props;
 
   const paginationRange = usePagination({

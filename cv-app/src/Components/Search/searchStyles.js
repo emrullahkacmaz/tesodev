@@ -33,9 +33,9 @@ export const SearchIconWrapper = styled("div")(({ theme }) => ({
 export const StyledInputBase = styled(InputBase)(({ theme }) => ({
   width: "100%",
   borderWidth: 1,
-  borderStyle:'inset',
-  borderRadius:10,
-  borderColor:' #204080',
+  borderStyle: "inset",
+  borderRadius: 10,
+  borderColor: " #204080",
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   color: "inherit",
   "& .MuiInputBase-input": {
