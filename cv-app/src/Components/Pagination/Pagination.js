@@ -1,6 +1,6 @@
 import React from 'react';
  
-import { usePagination, DOTS } from './usePagination';
+import { usePagination } from './usePagination';
 
 
 const Pagination = props => {
@@ -35,42 +35,45 @@ const Pagination = props => {
   let lastPage = paginationRange[paginationRange.length - 1];
   return (
     <div
-     style={{flexDirection:'row'}}
+     style={{display:'flex'}}
     >
       <button
-      
+      style={{fontSize:'14px', lineHeight:'16px',fontFamily:'Roboto',fontWeight:700, width:'85px', height:'25px', backgroundColor:'#FFFFFF', borderColor:'#484848', borderRadius:'4px', borderWidth:'1px',borderStyle:'solid'}}
         disabled= {currentPage === 1 }
         onClick={onPrevious}
       >
-        Previous
-        <div className="arrow left" />
+        <div style={{marginTop:'-4px', color:'#484848'}}>  Previous</div>
+       
+      
       </button>
       {paginationRange.map(pageNumber => {
-        if (pageNumber === DOTS) {
-          return <li className="pagination-item dots">&#8230;</li>;
+        if (pageNumber === '. . .') {
+          return <div className="pagination-item dots">&#8230;</div>;
         }
 
         return (
           <button
            
               selected= {pageNumber === currentPage}
-              style={{marginLeft:10,marginRight:10, backgroundColor: pageNumber===currentPage ? '#204080' : 'white', color: pageNumber===currentPage ? 'white' : 'black'}}
+              style={{fontSize:'14px', lineHeight:'16px',fontFamily:'Roboto',fontWeight:700, marginTop:'2px',width:'27px', height:'20px', marginLeft:10,borderColor:'grey',marginRight:10, backgroundColor: pageNumber===currentPage ? '#204080' : '#FFFFFF', color: pageNumber===currentPage ? '#FFFFFF' : '#484848',borderColor:'#484848', borderRadius:'4px', borderWidth:'1px',borderStyle:'solid'}}
            
             onClick={() => onPageChange(pageNumber)}
           >
-            {pageNumber}
+            <div style={{marginTop:'-5px'}}>  {pageNumber}</div>
+
+           
           </button>
         );
       })}
       <button
-      
+            style={{fontSize:'14px', lineHeight:'16px',fontFamily:'Roboto',fontWeight:700, width:'85px', height:'25px', backgroundColor:'#FFFFFF', borderColor:'#484848', borderRadius:'4px', borderWidth:'1px',borderStyle:'solid'}}
+
     disabled= {currentPage === lastPage}
  
         onClick={onNext}
         
       >
-        Next
-        <div className="arrow right" />
+       <div style={{marginTop:'-4px', color:'#484848'}}>  Next</div>
       </button>
     </div>
   );

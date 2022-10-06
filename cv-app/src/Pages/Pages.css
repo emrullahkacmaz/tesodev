@@ -20,10 +20,7 @@
 .SearchBar {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 66%;
-  margin-left: 20%;
+
 }
 .SearchTextArea {
   flex: 4;

@@ -17,10 +17,13 @@
       line-height: 1.43;
       font-size: 13px;
       min-width: 32px;
+      margin-top: 5px;
+     
   
       &.dots:hover {
         background-color: transparent;
         cursor: default;
+        margin-top: 5px;
       }
       &:hover {
         background-color: rgba(0, 0, 0, 0.04);

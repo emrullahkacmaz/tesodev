@@ -9,18 +9,21 @@ import {
   
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
  
-import MainPages from './Pages/MainPage';
-import ShowMoreList from './Pages/ShowMoreList';
+ 
+ 
 import AddForm from './Pages/AddForm';
+import HomePages from './Pages/homePage';
+import FilteredList from './Pages/filteredList';
+import FormAdd from './Pages/formAdd';
 
 
 function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<MainPages/>} />
-        <Route path="/list" element={<ShowMoreList />} />
-        <Route path="/form" element={<AddForm />} />
+      <Route path="/" element={<HomePages/>} />
+        <Route path="/lists" element={<FilteredList />} />
+        <Route path="/forms" element={<FormAdd />} />
         
 
     </Routes>
