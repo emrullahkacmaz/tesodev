@@ -11,8 +11,8 @@ import searchVector from "../../src/Assets/searchVector.png";
 import ListItems from "../Components/ListItem";
 
 import Carousel from "react-elastic-carousel";
-import ItemSlider from "../Components/Sliders/itemSlider";
-import "../Components/Sliders/slideStyles.css";
+import ItemSlider from "../Components/SlideItems/ItemSlider";
+
 
  
 
@@ -25,6 +25,7 @@ import {
   SearchIconWrapper,
   StyledInputBase,
 } from "../Components/Search/searchStyles";
+import SliderItems from "../Components/SlideItems/SliderItems";
 
 const HomePages = () => {
   const breakPoints = [
@@ -100,7 +101,7 @@ const HomePages = () => {
             </SearchIconWrapper>
  
             <StyledInputBase
-            paddingSearch='45px'
+            paddingsearch='45px'
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
               onChange={(e) =>  { 
@@ -138,7 +139,7 @@ const HomePages = () => {
         
           marginLeft:'266px',
           width:'717px',
-          height:'248px',
+          height:'260px',
           borderStyle: 'groove',
           borderWidth: 1,
           borderRadius: '24px',
@@ -178,27 +179,20 @@ const HomePages = () => {
               font='16px'
               backgroundColor="transparent"
               title="Show more..."
+            
               onClick={openList}
             />{" "}
           </div>
         )}
       </div>
 
-<div style={{width:'692x', height:'36px', fontFamily:'Inter', fontWeight:700, color:'#090A0A', fontSize:'32px', marginLeft:'108px', marginTop:'93px'}}>Top News</div>
+<div style={{display:'flex',width:'692x', height:'36px', fontFamily:'Inter', fontWeight:700, color:'#090A0A', fontSize:'32px', marginLeft:'108px', marginTop:'93px'}}>Top News</div>
 
-  <div style={{ flex: 1, width: "90%", height:'263px', marginTop:'49px', marginLeft:'73px' }}>
-        <Carousel breakPoints={breakPoints}>
-          <ItemSlider />
-          <ItemSlider />
-          <ItemSlider />
-          <ItemSlider />
-          <ItemSlider />
-          <ItemSlider />
-          <ItemSlider />
-        </Carousel>
+  <div style={{   width: "1000px", height:'243px', marginTop:'49px', marginLeft:'73px' }}>
+      < SliderItems/>
       </div>
 
-      <div style={{width:'1280px', height:'277px', backgroundColor:'#294e98b8', display:'flex', flexDirection:'row'   }}>
+      <div style={{width:'1280px', height:'277px', backgroundColor:'#294e98b8', display:'flex', flexDirection:'row', marginTop:'82px'  }}>
         <img src={address} alt="Canvas Logo" style={{ width:'217px', height:'179px', marginTop:'48px', marginLeft:'59px'}} />
 
         <div style={{ flex: 1, color: "white", width:'424px', height:'171px', marginLeft:'25px' }}>

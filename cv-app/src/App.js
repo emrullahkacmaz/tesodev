@@ -11,7 +11,6 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css'
  
  
  
-import AddForm from './Pages/AddForm';
 import HomePages from './Pages/homePage';
 import FilteredList from './Pages/filteredList';
 import FormAdd from './Pages/formAdd';

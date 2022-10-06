@@ -113,7 +113,7 @@ const FilteredList = (props) => {
           <Search>
          
             <StyledInputBase
-            paddingSearch='10px'
+            paddingsearch='10px'
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
              

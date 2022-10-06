@@ -6,7 +6,7 @@ import logo from "../../src/Assets/tesodev.png";
 import closeIcon from "../../src/Assets/closeIcon.png";
 import backArrow from "../../src/Assets/backArrow.png";
 import { useNavigate } from "react-router-dom";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+
 
 const FormAdd = () => {
   const DisplayingErrorMessagesSchema = Yup.object().shape({
@@ -117,7 +117,7 @@ marginLeft:'229px',
 
                    
                  
-                    color: errors.nameSurname ? "red" : "#686868",
+                    color: errors.nameSurname ? "#FF4E78" : "#686868",
                   }}
                 >
                   Name Surname
@@ -139,7 +139,7 @@ SelectProps={{
                     
                     borderRadius: '12px',
                     marginTop: '7px',
-                    borderColor: errors.nameSurname ? "red" : "#484848",
+                    borderColor: errors.nameSurname ? "#FF4E78" : "#484848",
                   }}
                 
                   
@@ -147,7 +147,7 @@ SelectProps={{
                   placeholder="Enter name and surname"
                 />
                 {touched.nameSurname && errors.nameSurname && (
-                  <div style={{   marginLeft:'225px',color: "red" }}>{errors.nameSurname}</div>
+                  <div style={{   marginLeft:'225px',color: "#FF4E78" }}>{errors.nameSurname}</div>
                 )}
               </div>
 
@@ -167,7 +167,7 @@ marginLeft:'229px',
 
                    
                  
-                    color: errors.nameSurname ? "red" : "#686868",
+                    color: errors.nameSurname ? "#FF4E78" : "#686868",
                   
                   }}
                 >
@@ -185,13 +185,13 @@ marginLeft:'229px',
                      
                      borderRadius: '12px',
                      marginTop: '7px',
-                     borderColor: errors.nameSurname ? "red" : "#484848",
+                     borderColor: errors.nameSurname ? "#FF4E78" : "#484848",
                   }}
                   name="country"
                   placeholder="Enter a country"
                 />
                 {touched.country && errors.country && (
-                  <div style={{  marginLeft:'225px', color: "red" }}>{errors.country}</div>
+                  <div style={{  marginLeft:'225px', color: "#FF4E78" }}>{errors.country}</div>
                 )}
               </div>
 
@@ -211,7 +211,7 @@ marginLeft:'229px',
 
                    
             
-                    color: errors.nameSurname ? "red" : "#686868",
+                    color: errors.nameSurname ? "#FF4E78" : "#686868",
                   }}
                 >
                   City
@@ -228,13 +228,13 @@ marginLeft:'229px',
                      
                      borderRadius: '12px',
                      marginTop: '7px',
-                     borderColor: errors.nameSurname ? "red" : "#484848",
+                     borderColor: errors.nameSurname ? "#FF4E78" : "#484848",
                   }}
                   name="city"
                   placeholder="Enter a city"
                 />
                 {touched.city && errors.city && (
-                  <div style={{  marginLeft:'225px', color: "red" }}>{errors.city}</div>
+                  <div style={{  marginLeft:'225px', color: "#FF4E78" }}>{errors.city}</div>
                 )}
               </div>
 
@@ -254,7 +254,7 @@ marginLeft:'229px',
 
                    
                 
-                    color: errors.nameSurname ? "red" : "#686868",
+                    color: errors.nameSurname ? "#FF4E78" : "#686868",
                   }}
                 >
                   Email
@@ -272,13 +272,13 @@ marginLeft:'229px',
                      
                      borderRadius: '12px',
                      marginTop: '7px',
-                     borderColor: errors.nameSurname ? "red" : "#484848",
+                     borderColor: errors.nameSurname ? "#FF4E78" : "#484848",
                   }}
                   name="email"
                   placeholder="Enter a email(abc@xyz.com)"
                 />
                 {touched.email && errors.email && (
-                  <div style={{   marginLeft:'225px',color: "red" }}>{errors.email}</div>
+                  <div style={{   marginLeft:'225px',color: "#FF4E78" }}>{errors.email}</div>
                 )}
               </div>
 
