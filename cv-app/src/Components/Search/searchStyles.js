@@ -28,25 +28,26 @@ export const SearchIconWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  
 }));
 
-export const StyledInputBase = styled(InputBase)(({ theme , paddingsearch}) => ({
-  width: "100%",
-  borderWidth: 1,
-  borderStyle: "inset",
-  borderRadius: 10,
-  borderColor: " #204080",
-  backgroundColor: 'transparent',
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft:  paddingsearch,
-    transition: theme.transitions.create("width"),
+export const StyledInputBase = styled(InputBase)(
+  ({ theme, paddingsearch }) => ({
     width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
+    borderWidth: 1,
+    borderStyle: "inset",
+    borderRadius: 10,
+    borderColor: " #204080",
+    backgroundColor: "transparent",
+    color: "inherit",
+    "& .MuiInputBase-input": {
+      padding: theme.spacing(1, 1, 1, 0),
+
+      paddingLeft: paddingsearch,
+      transition: theme.transitions.create("width"),
+      width: "100%",
+      [theme.breakpoints.up("md")]: {
+        width: "20ch",
+      },
     },
-  },
-}));
+  })
+);

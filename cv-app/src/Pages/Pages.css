@@ -40,7 +40,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-bottom: '12px';
+  margin-top: '12px';
+
+ 
 }
 .Footer {
   display: flex;
